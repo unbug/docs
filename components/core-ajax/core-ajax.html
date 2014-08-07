@@ -1,0 +1,319 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+@group Polymer Core Elements
+
+ `core-ajax` 元素提供了 `XMLHttpRequest` 的功能.
+
+    <core-ajax
+        auto
+        url="http://gdata.youtube.com/feeds/api/videos/"
+        params='{"alt":"json", "q":"chrome"}'
+        handleAs="json"
+        on-core-response="{{handleResponse}}"></core-ajax>
+ 
+通过将 `auto` 属性设置为 `true`, element 将在它的 `url` 或 `params` 属性改变时发送请求。
+
+注意: `params` 属性必须是双引号括起的JSON。
+
+你可以通过调用element的 `go` 函数明确地触发一个请求。
+
+@element core-ajax
+@status beta
+@homepage github.io
+-->
+<link rel="import" href="core-xhr.html">
+<polymer-element name="core-ajax" hidden attributes="url handleAs auto params response method headers body contentType withCredentials">
+<script>
+
+  Polymer('core-ajax', {
+    /**
+     * 当接收到响应时触发。
+     * 
+     * @event core-response
+     */
+
+    /**
+     * 当接收到错误时触发。
+     * 
+     * @event core-error
+     */
+
+    /**
+     * 当接收到响应或错误时触发。
+     *
+     * @event core-complete
+     */
+
+    /**
+     * 发送请求的地址.
+     * 
+     * @attribute url
+     * @type string
+     * @default ''
+     */
+    url: '',
+
+    /**
+     * 指定什么数据被存储在`response`属性中, and
+     * to deliver as `event.response` in `response` 事件.
+     * 
+     * 以下之一:
+     * 
+     *    `text`: 使用 `XHR.responseText`.
+     *    
+     *    `xml`: 使用 `XHR.responseXML`.
+     *    
+     *    `json`: 使用 `XHR.responseText` 并作为 JSON 来反序列化.
+     *
+     *    `arraybuffer`: 使用 `XHR.response`.
+     *
+     *    `blob`: 使用 `XHR.response`.
+     *
+     *    `document`: 使用 `XHR.response`.
+     *  
+     * @attribute handleAs
+     * @type string
+     * @default 'text'
+     */
+    handleAs: '',
+
+    /**
+     * 为true时,当  `url` 或 `params` 改变时将自动地发送一条Ajax请求 .
+     *
+     * @attribute auto
+     * @type boolean
+     * @default false
+     */
+    auto: false,
+
+    /**
+     * 发送到指定URL的参数, 以JSON格式输入.
+     *  
+     * @attribute params
+     * @type string (JSON)
+     * @default ''
+     */
+    params: '',
+
+    /**
+     * 返回响应对象.
+     *
+     * @attribute response
+     * @type Object
+     * @default null
+     */
+    response: null,
+
+    /**
+     * 将被使用的http方法如 'GET', 'POST', 'PUT' 和 'DELETE'.
+     * 默认为 'GET'.
+     *
+     * @attribute method
+     * @type string
+     * @default ''
+     */
+    method: '',
+
+    /**
+     * 将发送的HTTP请求头.
+     *
+     * 样例:
+     *
+     *     <core-ajax 
+     *         auto
+     *         url="http://somesite.com"
+     *         headers='{"X-Requested-With": "XMLHttpRequest"}'
+     *         handleAs="json"
+     *         on-core-response="{{handleResponse}}"></core-ajax>
+     *  
+     * @attribute headers
+     * @type Object
+     * @default null
+     */
+    headers: null,
+
+    /**
+     * 当Http方法为 "POST" 时可选的原始请求主体.
+     *
+     * 样例:
+     *
+     *     <core-ajax method="POST" auto url="http://somesite.com"
+     *         body='{"foo":1, "bar":2}'>
+     *     </core-ajax>
+     *  
+     * @attribute body
+     * @type Object
+     * @default null
+     */
+    body: null,
+
+    /**
+     * 发送数据时使用的内容类型.
+     *
+     * @attribute contentType
+     * @type string
+     * @default 'application/x-www-form-urlencoded'
+     */
+    contentType: 'application/x-www-form-urlencoded',
+
+    /**
+     * 设置请求的withCredentials标记.
+     * 
+     * @attribute withCredentials
+     * @type boolean
+     * @default false
+     */
+    withCredentials: false,
+    
+    /**
+     * core-xhr所需的额外属性.
+     *
+     * 可以被设置为一个包含默认属性的对象，此对象将作为参数被发送到实现了底层通讯的`core-xhr.request()` 方法。
+     * 
+     * @property xhrArgs
+     * @type Object
+     * @default null
+     */
+    xhrArgs: null,
+     
+    ready: function() {
+      this.xhr = document.createElement('core-xhr');
+    },
+
+    receive: function(response, xhr) {
+      if (this.isSuccess(xhr)) {
+        this.processResponse(xhr);
+      } else {
+        this.error(xhr);
+      }
+      this.complete(xhr);
+    },
+
+    isSuccess: function(xhr) {
+      var status = xhr.status || 0;
+      return !status || (status >= 200 && status < 300);
+    },
+
+    processResponse: function(xhr) {
+      var response = this.evalResponse(xhr);
+      this.response = response;
+      this.fire('core-response', {response: response, xhr: xhr});
+    },
+
+    error: function(xhr) {
+      var response = xhr.status + ': ' + xhr.responseText;
+      this.fire('core-error', {response: response, xhr: xhr});
+    },
+
+    complete: function(xhr) {
+      this.fire('core-complete', {response: xhr.status, xhr: xhr});
+    },
+
+    evalResponse: function(xhr) {
+      return this[(this.handleAs || 'text') + 'Handler'](xhr);
+    },
+
+    xmlHandler: function(xhr) {
+      return xhr.responseXML;
+    },
+
+    textHandler: function(xhr) {
+      return xhr.responseText;
+    },
+
+    jsonHandler: function(xhr) {
+      var r = xhr.responseText;
+      try {
+        return JSON.parse(r);
+      } catch (x) {
+        console.warn('core-ajax caught an exception trying to parse reponse as JSON:');
+        console.warn('url:', this.url);
+        console.warn(x);
+        return r;
+      }
+    },
+
+    documentHandler: function(xhr) {
+      return xhr.response;
+    },
+
+    blobHandler: function(xhr) {
+      return xhr.response;
+    },
+
+    arraybufferHandler: function(xhr) {
+      return xhr.response;
+    },
+
+    urlChanged: function() {
+      if (!this.handleAs) {
+        var ext = String(this.url).split('.').pop();
+        switch (ext) {
+          case 'json':
+            this.handleAs = 'json';
+            break;
+        }
+      }
+      this.autoGo();
+    },
+
+    paramsChanged: function() {
+      this.autoGo();
+    },
+
+    autoChanged: function() {
+      this.autoGo();
+    },
+
+    // TODO(sorvell): multiple side-effects could call autoGo 
+    // during one micro-task, use a job to have only one action 
+    // occur
+    autoGo: function() {
+      if (this.auto) {
+        this.goJob = this.job(this.goJob, this.go, 0);
+      }
+    },
+
+    /**
+     * 发送一条Ajax请求到指定的URL.
+     *
+     * @method go
+     */
+    go: function() {
+      var args = this.xhrArgs || {};
+      // TODO(sjmiles): we may want XHR to default to POST if body is set
+      args.body = this.body || args.body;
+      args.params = this.params || args.params;
+      if (args.params && typeof(args.params) == 'string') {
+        args.params = JSON.parse(args.params);
+      }
+      args.headers = this.headers || args.headers || {};
+      if (args.headers && typeof(args.headers) == 'string') {
+        args.headers = JSON.parse(args.headers);
+      }
+      if (this.contentType) {
+        args.headers['content-type'] = this.contentType;
+      }
+      if (this.handleAs === 'arraybuffer' || this.handleAs === 'blob' ||
+          this.handleAs === 'document') {
+        args.responseType = this.handleAs;
+      }
+      args.withCredentials = this.withCredentials;
+      args.callback = this.receive.bind(this);
+      args.url = this.url;
+      args.method = this.method;
+      return args.url && this.xhr.request(args);
+    }
+
+  });
+
+</script>
+</polymer-element>
