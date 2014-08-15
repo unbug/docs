@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!--
 @group Polymer Core Elements
 
- `core-ajax` element提供了 `XMLHttpRequest` 的功能.
+The `core-ajax` element exposes `XMLHttpRequest` functionality.
 
     <core-ajax
         auto
@@ -19,11 +19,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         handleAs="json"
         on-core-response="{{handleResponse}}"></core-ajax>
  
-通过将 `auto` 属性设置为 `true`, element 将在它的 `url` 或 `params` 属性改变时发送请求。
+With `auto` set to `true`, the element performs a request whenever
+its `url` or `params` properties are changed.
 
-注意: `params` 属性必须是双引号括起的JSON。
+Note: The `params` attribute must be double quoted JSON.
 
-你可以通过调用element的 `go` 函数明确地触发一个请求。
+You can trigger a request explicitly by calling `go` on the
+element.
 
 @element core-ajax
 @status beta
@@ -35,25 +37,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   Polymer('core-ajax', {
     /**
-     * 当接收到响应时触发。
+     * Fired when a response is received.
      * 
      * @event core-response
      */
 
     /**
-     * 当接收到错误时触发。
+     * Fired when an error is received.
      * 
      * @event core-error
      */
 
     /**
-     * 当接收到响应或错误时触发。
+     * Fired whenever a response or an error is received.
      *
      * @event core-complete
      */
 
     /**
-     * 发送请求的地址.
+     * The URL target of the request.
      * 
      * @attribute url
      * @type string
@@ -62,22 +64,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     url: '',
 
     /**
-     * 指定什么数据被存储在`response`属性中, and
-     * to deliver as `event.response` in `response` 事件.
+     * Specifies what data to store in the `response` property, and
+     * to deliver as `event.response` in `response` events.
      * 
-     * 以下之一:
+     * One of:
      * 
-     *    `text`: 使用 `XHR.responseText`.
+     *    `text`: uses `XHR.responseText`.
      *    
-     *    `xml`: 使用 `XHR.responseXML`.
+     *    `xml`: uses `XHR.responseXML`.
      *    
-     *    `json`: 使用 `XHR.responseText` 并作为 JSON 来反序列化.
+     *    `json`: uses `XHR.responseText` parsed as JSON.
      *
-     *    `arraybuffer`: 使用 `XHR.response`.
+     *    `arraybuffer`: uses `XHR.response`.
      *
-     *    `blob`: 使用 `XHR.response`.
+     *    `blob`: uses `XHR.response`.
      *
-     *    `document`: 使用 `XHR.response`.
+     *    `document`: uses `XHR.response`.
      *  
      * @attribute handleAs
      * @type string
@@ -86,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     handleAs: '',
 
     /**
-     * 为true时,当  `url` 或 `params` 改变时将自动地发送一条Ajax请求 .
+     * If true, automatically performs an Ajax request when either `url` or `params` changes.
      *
      * @attribute auto
      * @type boolean
@@ -95,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     auto: false,
 
     /**
-     * 发送到指定URL的参数, 以JSON格式输入.
+     * Parameters to send to the specified URL, as JSON.
      *  
      * @attribute params
      * @type string (JSON)
@@ -104,7 +106,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     params: '',
 
     /**
-     * 返回响应对象.
+     * Returns the response object.
      *
      * @attribute response
      * @type Object
@@ -113,8 +115,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     response: null,
 
     /**
-     * 将使用的http方法如 'GET', 'POST', 'PUT' 和 'DELETE'.
-     * 默认为 'GET'.
+     * The HTTP method to use such as 'GET', 'POST', 'PUT', or 'DELETE'.
+     * Default is 'GET'.
      *
      * @attribute method
      * @type string
@@ -123,9 +125,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     method: '',
 
     /**
-     * 将发送的HTTP请求头.
+     * HTTP request headers to send.
      *
-     * 样例:
+     * Example:
      *
      *     <core-ajax 
      *         auto
@@ -141,9 +143,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     headers: null,
 
     /**
-     * 当Http方法为 "POST" 时可选的原始请求主体.
+     * Optional raw body content to send when method === "POST".
      *
-     * 样例:
+     * Example:
      *
      *     <core-ajax method="POST" auto url="http://somesite.com"
      *         body='{"foo":1, "bar":2}'>
@@ -156,7 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     body: null,
 
     /**
-     * 发送数据时使用的内容类型.
+     * Content type to use when sending data.
      *
      * @attribute contentType
      * @type string
@@ -165,7 +167,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     contentType: 'application/x-www-form-urlencoded',
 
     /**
-     * 设置请求的withCredentials标记.
+     * Set the withCredentials flag on the request.
      * 
      * @attribute withCredentials
      * @type boolean
@@ -174,9 +176,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     withCredentials: false,
     
     /**
-     * core-xhr所需的额外属性.
+     * Additional properties to send to core-xhr.
      *
-     * 可以被设置为一个包含默认属性的对象，此对象将作为参数被发送到实现了底层通讯的`core-xhr.request()` 方法。
+     * Can be set to an object containing default properties
+     * to send as arguments to the `core-xhr.request()` method
+     * which implements the low-level communication.
      * 
      * @property xhrArgs
      * @type Object
@@ -283,7 +287,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     /**
-     * 发送一条Ajax请求到指定的URL.
+     * Performs an Ajax request to the specified URL.
      *
      * @method go
      */
