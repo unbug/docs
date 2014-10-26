@@ -25,7 +25,7 @@ subtitle: 你的第一个 Polymer 应用程序
 ### 编辑 index.html
 
 
-到 `本项目` 的根目录并用你偏好的编辑器打开 `index.html` 文件. 文件开始看上去是这样的:
+到 `starter` 目录并用你偏好的编辑器打开 `index.html` 文件。文件开始看上去是这样的:
 
 <side-by-side>
 <pre>
@@ -46,13 +46,16 @@ subtitle: 你的第一个 Polymer 应用程序
 <aside>
   <h4>要点</h4>
   <ul>
-    <li>这个基础的文件定义了一些样式和链入了可弥补浏览器原生不支持某些特性的 <code>platform.js</code> 脚本。</li>
-    <li> <code>link rel="import"</code> element 就是 <em>HTML import</em>啦,是一种将资源导入到一个 HTML 文件里的新途径.</li>
+    <li>这个基础的文件定义了一些样式和嵌入了可弥补浏览器原生不支持某些特性的 <code>platform.js</code> 脚本。</li>
+    <li> <code>link rel="import"</code> element 就是 <em>HTML import</em>啦，是一种将资源导入到一个 HTML 文件里的新途径。</li>
   </ul>
 </aside>
 </side-by-side>
 
-先跳过样式部分，在文件的底下你会看到一些新东西：
+**注意:** 导入 `font-roboto` 会通过 <a href="https://developers.google.com/fonts/">Google Fonts API</a> 加载 `RobotoDraft` 字体。如果你在离线状态下工作或者因为任何原因不能获取 Google Fonts API，这会阻塞页面的渲染。如果你遇到了这个问题，将引入 `font-roboto` 的语句注释掉。
+{: .alert .alert-info }
+
+先跳过样式部分，在文件的底下你会看到一些新东西 ：
 
 <side-by-side>
 <pre>
