@@ -47,7 +47,7 @@ subtitle: 你的第一个 Polymer 应用程序
   <h4>要点</h4>
   <ul>
     <li>这个基础的文件定义了一些样式和链入了可弥补浏览器原生不支持某些特性的 <code>platform.js</code> 脚本。</li>
-    <li> <code>link rel="import"</code> element 就是 <em>HTML import</em>啦,是一种将资源导入到一个 THML 文件里的新途径.</li>
+    <li> <code>link rel="import"</code> element 就是 <em>HTML import</em>啦,是一种将资源导入到一个 HTML 文件里的新途径.</li>
   </ul>
 </aside>
 </side-by-side>
