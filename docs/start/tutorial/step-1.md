@@ -60,7 +60,7 @@ subtitle: 你的第一个 Polymer 应用程序
 <side-by-side>
 <pre>
   ...
-&lt;body unresolved touch-action="auto">
+&lt;body unresolved>
 
 &lt;/body>
   ...
@@ -68,10 +68,8 @@ subtitle: 你的第一个 Polymer 应用程序
 <aside>
   <h4>要点</h4>
   <ul>
-    <li>这里<code>&lt;body></code> element 上的 <code>unresolved</code> 属性是用来防止某些浏览器原生不支持 custom elements 而且引起的无样式内容闪动(flash of unstyled content - FOUC)问题 . 
-    详情请查看
-        <a href="/docs/polymer/styling.html#fouc-prevention">Polymer styling reference</a>.</li>
-    <li> <code>touch-action="auto"</code> 属性是保证 touch 事件在某些浏览器上被正确处理的.</li>
+    <li>这里<code>&lt;body></code> element 上的 <code>unresolved</code> 属性是用来防止某些浏览器原生不支持 custom elements 而且引起的无样式内容闪动(flash of unstyled content - FOUC)问题。详情请查看
+    <a href="/docs/polymer/styling.html#fouc-prevention">Polymer styling reference</a>.</li>
   </ul>
 </aside>
 </side-by-side>
@@ -116,15 +114,15 @@ subtitle: 你的第一个 Polymer 应用程序
 </div>
 
 要添加一个工具栏，将下面的代码添加到 `<body>` 标签里.
- 
+
 <side-by-side>
 <pre>
 <strong class="highlight nocode">&lt;core-header-panel>
-    
+
   &lt;core-toolbar>
   &lt;/core-toolbar>
 
-  &lt;!-- main page content will go here --> 
+  &lt;!-- main page content will go here -->
 
 &lt;/core-header-panel></strong>
 </pre>
@@ -133,7 +131,7 @@ subtitle: 你的第一个 Polymer 应用程序
 
     <ul>
       <li><code><a href="/docs/elements/core-elements.html#core-header-panel">&lt;core-header-panel&gt;</a></code> 
-          element 是一个可以包含一个标题栏(本例是个 <code>&lt;core-toolbar></code> element)和内容的简单容器. 
+          element 是一个可以包含一个标题栏（本例是个 <code>&lt;core-toolbar></code> element）和内容的简单容器。
           标题栏默认是保持在页面的顶部，当然也可以设置成随页面滚动而滚动</li>
       <li><code><a href="/docs/elements/core-elements.html#core-toolbar">&lt;core-toolbar></a></code> element 
       	则作为包含标签栏，菜单按钮，和其他控制器相关的容器。</li>
@@ -149,7 +147,7 @@ subtitle: 你的第一个 Polymer 应用程序
 
 本应用程序会使用标签栏来作为两个不同的视图之间的导航，一个视图是所有消息列表，另一个视图是偏好列表。
 <code><a href="/docs/elements/paper-elements.html#paper-tabs">&lt;paper-tabs&gt;</a></code>
-element 的效果与 `<select>` element 类似, 只是它的样式被定义成了一组tab标签.
+element 的效果与 `<select>` element 类似，只是它的样式被定义成了一组tab标签。
 
 <side-by-side>
 <pre>
@@ -168,16 +166,16 @@ element 的效果与 `<select>` element 类似, 只是它的样式被定义成�
     <h4>要点</h4>
     <ul>
       <li>
-        <code>&lt;paper-tabs></code> 标识了子节点选中的方式是通过 name 值还是它的索引下标值.
+        <code>&lt;paper-tabs></code> 通过 name 值或者它的索引值识别被选中的子节点。
       </li>
       <li>
-        <code>selected="all"</code> 表示选择第一个tab标签作为默认选中标签.
+        <code>selected="all"</code> 选择第一个 tab 标签作为默认选中标签。
       </li>
-      <li>在本例里, 子节点都是 <code>&lt;paper-tab></code> elements, 提供了当你点击一个tab标签时 "水墨涟漪" 的样式和动画效果.
+      <li>在本例里，子节点都是 <code>&lt;paper-tab></code> elements，提供了当你点击一个 tab 标签时“水墨涟漪”的样式和动画效果。
       </li>
       <li>
-        <code>self-end</code> 是个
-        <a href="/docs/polymer/layout-attrs.html">布局属性</a>.
+        <code>self-end</code> 是一个
+        <a href="/docs/polymer/layout-attrs.html">布局属性</a>。
       </li>
 
     </ul>
@@ -186,16 +184,23 @@ element 的效果与 `<select>` element 类似, 只是它的样式被定义成�
 
 <div class="divider" layout horizontal center center-justified>
   <core-icon icon="polymer"></core-icon>
-</div> 
+</div>
 
-给新 elements 添加样式. 将以下的CSS规则添加到 `<style>` element 里.
+给新 elements 添加样式。将以下的CSS规则添加到 `<style>` element 里。
 
 <side-by-side>
-<pre><strong class="highlight nocode">
+<pre>
+html,body {
+  height: 100%;
+  margin: 0;
+  background-color: #E5E5E5;
+  font-family: 'RobotoDraft', sans-serif;
+}
+<strong class="highlight nocode">
 core-header-panel {
   height: 100%;
   overflow: auto;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
 }
 core-toolbar {
   background: #03a9f4;
@@ -208,24 +213,26 @@ core-toolbar {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-transform: uppercase;
 }</strong>
 </pre>
 <aside>
   <h4>要点</h4>
   <ul>
-    <li><code>&lt;core-header-panel&gt;</code> 是个普通的element，可以作为整个页面的布局或作为一个有工具栏的卡片。 要作成整个页面，可滚动的容器，则需要显示的设置它的高度。
-    <code>overflow</code> 和 <code>-webkit-overflow-scrolling</code> 属性确保了在触屏设备上流畅的滚动，尤其是iOS设备。</li>
-    <li>工具栏为其子tab标签添加了默认的 margin 值，以便适当的控制间隔。这里的tab标签之间不需要额外的间隔。</li>
-    <li><code>user-select</code> 属性是防止用户意外的选中tab标签里的文本.</li>
+    <li><code>&lt;core-header-panel&gt;</code> 是个普通的element，可以作为整个页面的布局或作为一个有工具栏的卡片。 要作为整个页面、可滚动的容器使用，需要显示地设置它的高度。</li>
+    <li>这里，将高度设置为100%。这样做是有效的因为现有的样式规则保证了它的父元素 <code>&lt;html&gt;</code> 和 <code>&lt;body&gt;</code> 占据了视口高度的100%。</li>
+    <li><code>overflow</code> 和 <code>-webkit-overflow-scrolling</code> 属性确保了在触屏设备上流畅的滚动，尤其是 iOS 设备。</li>
+    <li>#tab 选择器选择了 <code>&lt;paper-tabs&gt;</code> 元素。工具栏为其子标签添加了默认的 margin 值，以便适当的控制间隔。这里的 tab 标签之间不需要额外的间隔。</li>
+    <li><code>user-select</code> 属性防止用户意外的选中 tab 标签里的文本。</li>
   </ul>
 </aside>
 </side-by-side>
 
 <div class="divider" layout horizontal center center-justified>
   <core-icon icon="polymer"></core-icon>
-</div> 
+</div>
 
-追加一个 `<script>` wk到文件的底部来处理tab标签之间的切换事件.
+追加一个 `<script>` 标签到文件的底部来处理 tab 标签之间的切换事件。
 
 
 <side-by-side>
@@ -238,14 +245,14 @@ core-toolbar {
   });
 &lt;/script>
 </strong>&lt;/body>
-</pre> 
+</pre>
   <aside>
     <h4>要点</h4>
     <ul>
       <li>
-        <code>&lt;paper-tabs></code> element 会在你选中一个标签时触发 <code>core-select</code> 事件。
+        <code>&lt;paper-tabs></code> element 会在你选中一个 tab 时触发 <code>core-select</code> 事件。
         你可以将其作为内部 element 一样与此 element 互动。
-      </li> 
+      </li>
       <li>
       	不过目前没有什么可切换的，稍后你再完成那部分功能。
       </li>
@@ -254,16 +261,16 @@ core-toolbar {
 </side-by-side>
 
 
-保存文件并在浏览器里打开你的项目 (如, [http://localhost:8000/starter/](http://localhost:8000/starter/)). 一个 Polymer app 呈现在你的眼前! 
+保存文件并在浏览器里打开你的项目（如，[http://localhost:8000/starter/](http://localhost:8000/starter/)）。一个 Polymer app 呈现在你的眼前！
 
 
 <div layout vertical center>
   <img class="sample" src="/images/tutorial/step-1.png">
 </div>
 
-**注意:** 如果你打开了控制台,你可能已经注意到了，你每次切换tab标签时都触发了两次 `core-select` 
-事件 &mdash; 一个是先前选中tab标签的，另一个是之后选中的tab标签的。`<paper-tabs>` element 从
-<code><a href="/docs/elements/core-elements.html#core-selector">&lt;core-selector&gt;</a></code> 继承了此行为, 是同时支持单选和多选的。
+**注意:** 如果你打开了控制台，你可能已经注意到了，你每次切换 tab 标签时都触发了两次 `core-select` 
+事件 &mdash; 一个是先前选中 tab 标签的，另一个是之后选中的 tab 标签的。`<paper-tabs>` element 从
+<code><a href="/docs/elements/core-elements.html#core-selector">&lt;core-selector&gt;</a></code> 继承了此行为， 是同时支持单选和多选的。
 {: .alert .alert-info }
 
 如果哪里出了问题，可以对照 `step-1` 文件夹里的 `index.html` 文件检查你的工作：
