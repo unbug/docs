@@ -78,7 +78,7 @@ subtitle: 你的第一个 Polymer 应用程序
   <core-icon icon="polymer"></core-icon>
 </div>
 
-追加 HTML import 连接将 `<core-header-panel>`, `<core-toolbar>`, 和 `<paper-tabs>` elements 导入:
+追加 HTML import 连接将 `<core-header-panel>`，`<core-toolbar>` 和 `<paper-tabs>` elements 导入:
 
 <side-by-side>
 <pre>
@@ -113,7 +113,7 @@ subtitle: 你的第一个 Polymer 应用程序
   <core-icon icon="polymer"></core-icon>
 </div>
 
-要添加一个工具栏，将下面的代码添加到 `<body>` 标签里.
+要添加一个工具栏，将下面的代码添加到 `<body>` 标签里。
 
 <side-by-side>
 <pre>

@@ -43,7 +43,7 @@ Shadow DOM polyfill 文档</a>。</p>
 
 ### 编辑 post-card.html
 
-在你的编辑器里打开 `post-card.html` 。此文件包含一个 custom element 的骨架，从几个 imports 开始：
+在你的编辑器里打开 `post-card.html`。此文件包含一个 custom element 的骨架，从几个 imports 开始：
 
 <side-by-side>
 <pre>

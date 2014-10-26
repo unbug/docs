@@ -77,7 +77,7 @@ Python 3.x:
 本教程里的连接是假设你本地的 web 服务器监听的端口号是 8000。
 如果你用的其他端口号，则自行替换成你所用的。
 
-**注意:** 在 Windows 操作系统上，Python 的 simple HTTP 服务器可能对SVG图片的 MIME type 支持有误。
+**注意:** 在 Windows 操作系统上，Python 的 simple HTTP 服务器可能对 SVG 图片的 MIME type 支持有误。
 如果图片无法渲染，尝试使用其他的 web 服务器。
 {: .alert .alert-info }
 
