@@ -4,7 +4,7 @@ type: start
 navgroup: docs
 shortname: Start
 title: 入门教程
-subtitle: 你的第一个 Polymer 应用程序 
+subtitle: 你的第一个 Polymer 应用程序
 ---
 
 <style>
@@ -33,7 +33,7 @@ subtitle: 你的第一个 Polymer 应用程序
 }
 </style>
 
-通过本教程, 你将构建一个小小的 {{site.project_title}} 应用程序 -- 一个非常基础的社交类客户端.最终效果如下：
+通过本教程, 你将构建一个小小的 {{site.project_title}} 应用程序 -- 一个非常基础的社交类客户端。最终效果如下：
 
 <figure layout vertical center>
   <a href="/samples/tutorial/finished/index.html" layout horizontal flex class="unquote-link">
@@ -64,11 +64,11 @@ subtitle: 你的第一个 Polymer 应用程序
 
 Python 2.x:
 
-    python -m SimpleHTTPServer 
+    python -m SimpleHTTPServer
 
 Python 3.x:
 
-    python -m http.server 
+    python -m http.server
 
 运行本项目的最终版本来检测你的 web 服务器。如：
 
