@@ -30,7 +30,7 @@
 
 - 先看本 repo 的 issue 已被认领的翻译。只对没有被认领的翻译提 issue 进行认领。
 - 每个 issue 必须将认领部分的 github 连接放上去，如，标题： 【认领翻译】behaviors.md 。 正文：我将对[https://github.com/unbug/docs/blob/zh1.0.0/1.0/docs/devguide/behaviors.md](https://github.com/unbug/docs/blob/zh1.0.0/1.0/docs/devguide/behaviors.md) 进行翻译，预计20150601号完成。
-- 一个人一次建议不要认领太多 repo ,可以完成自己的部分并提交 pull request 再认领新的。
+- 一个人一次建议不要认领太多文档,可以完成自己的部分并提交 pull request 再认领新的。
 - 目前仅接受[1.0](https://github.com/unbug/docs/tree/zh1.0.0/1.0)的翻译认领，如有文档与0.5有强连接请备注说明。
 - 非常鼓励你可以对他人的 翻译进行 review.
 
