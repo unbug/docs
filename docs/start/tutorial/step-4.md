@@ -118,16 +118,16 @@ core-icon-button {
   position: absolute;
   top: 3px;
   right: 3px;
-  fill: #636363;
+  color: #636363;
 }
 :host([favorite]) core-icon-button {
-  fill: #da4336;
+  color: #da4336;
 }</strong>
 &lt;/style>
 </pre>
   <aside>
     <ul>
-      <li><code>fill</code> 属性设置了 icon 的填充色。</li>
+      <li><code>color</code> 属性设置了 icon 的填充色。</li>
       <li><code>:host([favorite]) core-icon-button</code> 选择器设置的是 custom element 的 <code>favorite</code> 属性被设定时的填充色。</li>
     </ul>
   </aside>
