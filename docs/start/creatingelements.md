@@ -3,42 +3,42 @@ layout: default
 type: start
 navgroup: start
 shortname: Start
-title: Creating elements
+title: 创建 elements
 subtitle: Polymer from the inside
 ---
 
 {% include toc.html %}
 
-{{site.project_title}} makes it simple to create web components, declaratively.
-Custom elements are defined using our custom element,  `<polymer-element>`, and can leverage
-{{site.project_title}}'s special features. These features reduce boilerplate
-and make it even easier to build complex, web component-based applications:
+{{site.project_title}} 使得声明式的创建 web components 变得更简单。
+通过我们的 custom element 定义 Custom elements，`<polymer-element>`，能促进 {{site.project_title}} 的特殊特性。
+这些特性简化了样板文件甚至更加容易构建更复杂的，基于 web component 的应用程序。
 
-- [Two-way data binding](/docs/polymer/databinding.html)
-- [Declarative event handing](/docs/polymer/polymer.html#declarative-event-mapping)
-- [Declarative inheritance](/docs/polymer/polymer.html#extending-other-elements)
-- [Property observation](/docs/polymer/polymer.html#observeprops)
-- Dynamic templates
-- Touch/gesture support
+- [数据双向绑定](/docs/polymer/databinding.html)
+- [声明式事件处理](/docs/polymer/polymer.html#declarative-event-mapping)
+- [声明式继承](/docs/polymer/polymer.html#extending-other-elements)
+- [属性监听](/docs/polymer/polymer.html#observeprops)
+- 动态模板
+- 触控/手势的支持
 - ...
 
-## Setup {#basics}
+## 安装 {#basics}
 
-### 1. Install {{site.project_title}} {#install}
+### 1. 安装 {{site.project_title}} {#install}
 
-Install the latest version of {{site.project_title}} as described in [Getting the Code](/docs/start/getting-the-code.html).
+按 [获取源码](/docs/start/getting-the-code.html) 的说明安装 {{site.project_title}}  的最新版。
 
-### 2. Build a {{site.project_title}} element {#createpolyel}
+### 2. 构建 {{site.project_title}} element {#createpolyel}
 
-{{site.project_title}} provides extra goodies for creating declarative, souped-up custom elements. We call these "{{site.project_title}} elements". From the outside they look just like any other DOM element, but inside they're filled with handy features like two-way data binding and other bits of [{{site.project_title}} magic](/docs/polymer/polymer.html). These features make it easy to build complex components with much less code.
+{{site.project_title}} 提供了额外特性来创建声明式和高效的 custom elements。 我们称之为 "{{site.project_title}} elements"。
+从外表来看他们跟其他 DOM element 没什么两样，但是内部却有很多便捷的特性，像数据双向绑定和其他 [{{site.project_title}} 魔法](/docs/polymer/polymer.html)。
+这些特性使得创建复杂的 components 变得更加简单代码量也更少。
 
-To create a new element:
+创建一上新的 element:
 
-1. Load [{{site.project_title}} core](/docs/polymer/polymer.html) (`polymer.html`).
-2. Declare your custom element using `<polymer-element>`.
+1. 载入 [{{site.project_title}} core](/docs/polymer/polymer.html) (`polymer.html`).
+2. 使用 `<polymer-element>` 声明自己的 custom elements.
 
-In the following example, we define a new element named `<my-element>`, save
-it to a file `elements/my-element.html`, and use an HTML Import to load the `polymer.html` dependency.
+在以下例子里，我们定义一个叫 `<my-element>` 的新 element ， 保存到 `elements/my-element.html`， 通过 HTML Import 载入 `polymer.html` 依赖。
 
 **my-element.html**
 
@@ -50,11 +50,11 @@ it to a file `elements/my-element.html`, and use an HTML Import to load the `pol
       </template>
     </polymer-element>
 
-Two items to notice:
+两点需要注意：
 
-* The `name` attribute is required and **must** contain a "-". It specifies the name of the HTML tag you'll instantiate in markup (in this case `<my-element>`).
+* `name` 属性是必须的并且 **必须** 包含一个 "-"。 它指定了你在代码里实例化HMTL标签用的名称 (本例是 `<my-element>`)。
 
-* The `noscript` attribute indicates that this is a simple element that doesn't include any script. An element declared with `noscript` is registered automatically.
+* `noscript` 属性 indicates that this is a simple element that doesn't include any script. An element declared with `noscript` is registered automatically.
 
 #### Reusing other elements {#reuse}
 
