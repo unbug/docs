@@ -14,7 +14,7 @@
  - 对于一些常用前端名词的翻译，请参看[W3C 词汇中英对照表](http://w3c-html-ig-zh.github.io/w3c-glossary/)。对于 Polymer 常用关键词，请保留原词语：Web components,Custom Elements,Shadow DOM,Local DOM,HTML Imports,Polyfill,Iron Elements,Paper Elements,Material design等。
 
 #### 基础翻译
-> 先对[All Elements](https://elements.polymer-project.org/browse)的翻译无论是对你有质量的翻译或者学习 Polymer 都非常有帮助.
+> 先对[All Elements](https://elements.polymer-project.org/browse)的翻译无论是对你有质量的翻译或者学习 Polymer 都非常有帮助.你可以使用[polymer-starter-kit](https://github.com/unbug/polymer-starter-kit/tree/zh) 快速构建一个 Polymer 项目。
 
 #### 进阶翻译
 > 如果你已经完成以上两个部分，并且有自信对主要文档部分进行有质量保证的翻译，我们非常的欢迎。那么请按以下步骤进行翻译
