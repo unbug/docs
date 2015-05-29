@@ -21,7 +21,7 @@
 
 1. Fork [中文文档的 repo](https://github.com/unbug/docs/tree/zh1.0.0).
 2. Clone 你的自己 fork 的 github repo 到本地，并打好自己的翻译的 branch，branch 名称最好与自己认领部分的要点进行命名。请不要在 master 上进行翻译。
-3. 将你的翻译提交到你自己的 github repo 上，自己先 review 一遍，然后 pull request 到[中文文档的repo](https://github.com/unbug/docs/tree/zh1.0.0)，会有人给你进行 review。确认后才会进行 merge。
+3. 翻译完[并在本地预览](https://github.com/unbug/docs/blob/zh1.0.0/README.md) 好后，将你的翻译提交到你自己的 github repo 上，自己先 review 一遍，然后 pull request 到[中文文档的repo](https://github.com/unbug/docs/tree/zh1.0.0)，会有人给你进行 review。确认后才会进行 merge。
 
 > 如果你遇到麻烦请加QQ群：208264834 与大家探讨
 
