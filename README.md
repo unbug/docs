@@ -1,80 +1,83 @@
-Polymer docs are mostly in Markdown with some HTML. [Jekyll][jekyll] is used to generate the static HTML for the site. The output is generated into a folder called `_site` and served from Google App Engine.
+Polymer docs 大部分是带有 HTML 的 Markdown 文档. [Jekyll][jekyll] 用于生成网站的 HTML 静态文件。生成结果在 `_site` 目录下，由 Google App Engine 当服务。
 
-## Prereqs and installation requirements
+## 预备及安装必要的条件
 
-We use Jekyll 2.4 and [Grunt][grunt] to generate the documentation, and compass to compile SASS to CSS. You'll need to install the requirements before working on the docs (these instructions assume [NPM is already installed](http://nodejs.org/download/)):
+我们使用 Jekyll 2.4 和 [Grunt][grunt] 来生成文档, 用 compass 编译 SASS 成 CSS. 你要安装以下必要条件才能进行(本指南假设你已经 [安装了 NPM](http://nodejs.org/download/)):
 
     gem install bundler
     npm install -g grunt-cli vulcanize bower
 
-**Note:** If you receive permission warnings, you may need to run the above tasks with `sudo`.
+**注意:** 如果有权限问题，用 `sudo` 来运行.
 
-You'll also need the Python App Engine SDK to run the dev_appserver and preview the docs locally. [Download the SDK](https://developers.google.com/appengine/downloads).
+你还需要 Python 版的 App Engine SDK 来运行 dev_appserver 以便在本地预览文档.[下载 SDK](https://developers.google.com/appengine/downloads).
 
 
-### Getting Started
+### 准备开始
 
 - `git clone https://github.com/Polymer/docs.git`
 - `bundle install`
 - `npm install`
 - `cd 0.5`
 - `bower install`
+- `cd 1.0`
+- `bower install`
 - `grunt docs`
 - `grunt` (or `npm start`)
 
-## Making edits and previewing changes
+> 翻译的同学做到这里就可以预览了，查看 console 里的连接 [localhost:3000](localhost:3000)。余下的内容是 Polymer 团队才需要看的。
 
-This repo (`Polymer/docs`) is where the documentation source files live. To make a change:
+## 修改文档和预览结果
 
-1. Be sure to run `npm install` in your docs directory if it's a new checkout.
-2. Fire up the `grunt` task. This task runs a number of processes: a local app engine server, jekyll, compass, and vulcanize. The jekyll, compass, and vulcanize tasks will all watch for file changes and update the site if you make any edits.
-**Note:** Jekyll generates the static site in a folder named `_site`. It can take some time for the docs to fully regenerate and be copied to the output folder...keep refreshing!
-3. Make your edits.
+本 repo (`Polymer/docs`) 就是文档存放的位置.要做修改:
 
-Once your changes look good, `git commit` them and push.
+1. 如果你的 docs 目录是新 checkout 的 请确保运行了 `npm install`.
+2. 运行 `grunt` 任务. 本任务会做以下处理：一个本地的app engine 服务, jekyll, compass, and vulcanize. jekyll, compass, 和 vulcanize 任务会监听并自动更新相关文件的变更。
+**注意:** Jekyll 生成的本站的静态文件在 `_site` 目录下. 它在生成和将文件复制到对应目录的过程需要时间，不停的刷新网站就会出来了!
+3. 做修改.
 
-## Releases: pushing the docs
+当你修改好后, `git commit` 提交修改并 push.
 
-**Note**: only project owners can publish the documentation.
+## 发布: push 文档
 
-### Preview locally
+**注意**: 只有文档的所有者才能发布本文档。
 
-It's a good idea to run `grunt` before pushing the docs, as it runs a number of grunt tasks. Verify things went well and preview your changes locally using the dev server.
+### 本地预览
 
-### Update apps
+在 push 文档之前运行 `grunt` 是个好习惯, 本命令会执行很多任务，效验各种必要条件，并让你在本地预览结果。
 
-When updating the version of Polymer that the site uses, make sure to also update it in the following apps:
+### 更新 app
+
+每当更新 Polymer 的版本，应该同时更新以下 app:
 
 - [Tutorial](https://github.com/Polymer/polymer-tutorial)
 - [Topeka](https://github.com/Polymer/topeka)
 - [Designer](https://github.com/Polymer/designer)
 
-Unzip the release candidate into the `bower_components` directory of each app, verify, then run the app's `deploy.sh` script. In the case of the Tutorial, you'll need to follow the deploy instructions on the repo itself.
+解压对应 app 文件到 `bower_components` 目录, 校验, 然后运行 app 的 `deploy.sh` 脚本. 如果是 Tutorial, 你需要按它自己的指南安装.
 
-### Release
+### 发布
 
-Run `bower update` to make sure you have the latest component dependencies.
+运行 `bower update` 以确保你的 component 的依赖是最新的.
 
-Once these are updated, you need to update some versions for the docs:
+更新好后,你需要更新本文档的一些版本号:
 
-- Increment the version in `app.yaml`;
-- Update the Polymer release version in `_config.yml`.
-- Add a link point link to the release notes in `changelog.md`.
+- 在`app.yaml` 里增加版本号;
+- 更新 Polymer 发布版本号在 `_config.yml` 文件里.
+- 在 `changelog.md` 文件里追加更新日志.
 
-Build the docs:
+编译文档:
 
     grunt docs
     
-At this point, run the dev server with `grunt`, and preview things locally to make sure nothing is terribly
-broken after Polymer and the elements have been updated. 
+运行 `grunt` 的同时会运行 Google App Engine 服务, 最好先预览避免不会因为 Polymer 和 elements 更新引起 糟糕的结果。
 
-Next, run the deploy script in the root of the `Polymer/docs` directory:
+接着, 运行 `Polymer/docs` 目录的脚本:
 
     ./scripts/deploy_site.sh
     
-This script builds the site, api docs, runs Vulcanizer over the imports, and deploys to App Engine.    
+本脚本 script 会构建站点, api 文档, 执行 Vulcanizer, 并部署到 App Engine.    
 
-Last thing is to switch the app version in the App Engine admin console. To make the docs live, hit up https://appengine.google.com/deployment?&app_id=s~polymer-project and select the version you just deployed.
+最后到 App Engine 的管理后台切换版号. 点击 https://appengine.google.com/deployment?&app_id=s~polymer-project 并选择你刚刚发布的版号查看上线的版本.
 
 [jekyll]: http://jekyllrb.com/
 [grunt]: http://gruntjs.com/
