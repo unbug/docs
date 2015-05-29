@@ -2,14 +2,14 @@
 
 ### Polymer 1.0 中文文档翻译必读指南
 #### 相关资源
- - Polymer 官网英文镜像 [http://en.polymerchina.org/](http://en.polymerchina.org/)【即将为1.0.0更新】
+ - Polymer 官网英文镜像 [http://en.polymerchina.org/](http://en.polymerchina.org/)【已更新为1.0】
  - Polymer 中文文档 [http://docs.polymerchina.org](http://docs.polymerchina.org)【即将为1.0.0更新】
  - 文档翻译 repo [https://github.com/unbug/docs/tree/zh1.0.0](https://github.com/unbug/docs/tree/zh1.0.0)
  - Polymer 微博 [@Polymer中文社区](http://weibo.com/u/3631834213?from=profile&wvr=5&loc=infdomain)；QQ群：208264834
  - 组织者 unbug 的微博 [@听奏](http://weibo.com/unbug)
 
 #### 开始前须知
- - 在你开始前强烈建议你参考 Polymer 0.5 中文文档：[首页](http://docs.polymerchina.org/)，[FQA](http://docs.polymerchina.org/resources/faq.html)，[入门教程](http://docs.polymerchina.org/docs/start/tutorial/intro.html)，[0.5的repo](https://github.com/unbug/docs/tree/ZH).
+ - 在你开始前强烈建议你参考 Polymer 0.5 中文文档[0.5的repo](https://github.com/unbug/docs/tree/ZH).
  - 在你准备翻译某个部分前，**请先确保你已经实践过了，写过DEMO之后你的翻译质量更加有保证**，如果你遇到困难请加QQ群：208264834 与大家探讨。拒绝一切机器翻译。
  - 对于一些常用前端名词的翻译，请参看[W3C 词汇中英对照表](http://w3c-html-ig-zh.github.io/w3c-glossary/)。对于 Polymer 常用关键词，请保留原词语：Web components,Custom Elements,Shadow DOM,Local DOM,HTML Imports,Polyfill,Iron Elements,Paper Elements,Material design等。
 
