@@ -4,7 +4,7 @@ type: start
 navgroup: docs
 shortname: Start
 title: 入门教程
-subtitle: 你的第一个 Polymer 应用程序 
+subtitle: 你的第一个 Polymer 应用程序
 ---
 
 <style>
@@ -33,7 +33,7 @@ subtitle: 你的第一个 Polymer 应用程序
 }
 </style>
 
-通过本教程, 你将构建一个小小的 {{site.project_title}} 应用程序 -- 一个非常基础的社交类客户端.最终效果如下：
+通过本教程, 你将构建一个小小的 {{site.project_title}} 应用程序 -- 一个非常基础的社交类客户端。最终效果如下：
 
 <figure layout vertical center>
   <a href="/samples/tutorial/finished/index.html" layout horizontal flex class="unquote-link">
@@ -64,20 +64,20 @@ subtitle: 你的第一个 Polymer 应用程序
 
 Python 2.x:
 
-    python -m SimpleHTTPServer 
+    python -m SimpleHTTPServer
 
 Python 3.x:
 
-    python -m http.server 
+    python -m http.server
 
 运行本项目的最终版本来检测你的 web 服务器。如：
 
 -  [http://localhost:8000/finished/](http://localhost:8000/finished/)
 
-本教程里的连接是假设你本地的 web 服务器监听的端口号是 8000.
+本教程里的连接是假设你本地的 web 服务器监听的端口号是 8000。
 如果你用的其他端口号，则自行替换成你所用的。
 
-**注意:** 在 Windows 操作系统上, Python 的 simple HTTP 服务器可能对SVG图片的 MIME type 支持有误。
+**注意:** 在 Windows 操作系统上，Python 的 simple HTTP 服务器可能对 SVG 图片的 MIME type 支持有误。
 如果图片无法渲染，尝试使用其他的 web 服务器。
 {: .alert .alert-info }
 

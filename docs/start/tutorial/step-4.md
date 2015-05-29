@@ -4,7 +4,7 @@ type: start
 navgroup: docs
 shortname: Start
 title: "步骤 4: 画龙点睛"
-subtitle: 你的第一个 Polymer 应用程序 
+subtitle: 你的第一个 Polymer 应用程序
 ---
 
 <link rel="import" href="/elements/side-by-side.html">
@@ -27,12 +27,12 @@ subtitle: 你的第一个 Polymer 应用程序
 
 ## 步骤 4: 画龙点睛
 
-本章节，你将通过添加偏好按钮和将tab标签关联 `<post-list>` 来完成这个 app.
+本章节，你将通过添加偏好按钮和将 tab 标签关联 `<post-list>` 来完成这个 app。
 
 本章节，你将学到：
 
 -   显示事件处理。
--   给 element 追加属性和方法。
+-   给 element 原型追加属性和方法。
 -   全自动节点查找。
 
 ### 编辑 post-card.html
@@ -70,12 +70,12 @@ element：
   <core-icon icon="polymer"></core-icon>
 </div>
 
-追加 `favorite` 属性和方法 `favoriteTapped` 到 element 的属性里。 
+追加 `favorite` 属性和方法 `favoriteTapped` 到 element 的原型里。
 
 <side-by-side>
 <pre>
 &lt;script>
-<strong class="highlight nocode">   
+<strong class="highlight nocode">
 Polymer({
   publish: {
     favorite: {
@@ -93,11 +93,11 @@ Polymer({
   <aside>
     <ul>
       <li>这里的<code>publish</code> 对象是另一种指定公有属性的方法，
-	   像步骤 3 里展示过的 <code>attributes</code> 属性。 这里的
-      <code>favorite</code> 属性默认设置为 <code>false</code>, 且是 <em>reflects</em> 的, 
+	   像步骤 3 里展示过的 <code>attributes</code> 属性。这里的
+      <code>favorite</code> 属性默认设置为 <code>false</code>，且是 <em>reflects</em> 的，
       意思是 <code>favorite</code> 属性在 DOM 里将随着它的值改变而被更新。</li>
       <li><code>favoriteTapped</code> 事件来用切换 <code>favorite</code> 的属性 (<code>this.favorite</code>) 状态，
-       并且触发一个自定义的事件, 使用内部的 <code>fire</code> 方法。 (<code>fire</code> 是 {{site.project_title}} 为每个custom element 自动追加的工具方法中的一个方法。)</li>
+       并且触发一个自定义的事件，使用内部的 <code>fire</code> 方法。（<code>fire</code> 是 {{site.project_title}} 为每个custom element 自动追加的工具方法中的一个方法。）</li>
     </ul>
   </aside>
 </side-by-side>
@@ -137,13 +137,13 @@ core-icon-button {
   <core-icon icon="polymer"></core-icon>
 </div>
 
-保存 `post-card.html`.
-   
-到这个点时，你刷新你的页面可以看到偏好按钮正常工作了，不过完成本 app 还有几个小步骤。
+保存 `post-card.html`。
+
+此时，你刷新你的页面可以看到偏好按钮正常工作了，不过完成本 app 还有几个小步骤。
 
 ### 编辑 index.html
 
-打开 `index.html` 修改 tab 事件，使得用户在 `<post-list>`  里切换tab标签时能切换视图：
+打开 `index.html` 修改 tab 事件，使得用户在 `<post-list>`  里切换 tab 标签时能切换视图：
 
 <pre>
 &lt;script>
@@ -156,11 +156,11 @@ tabs.addEventListener('core-select', function() {
 &lt;/script>
 </pre>
 
-保存 `index.html`.
+保存 `index.html`。
 
 ### 编辑 post-list.html
 
-在你的编辑器里打开 `post-list.html` 。
+在你的编辑器里打开 `post-list.html`。
 
 修改创建 `<post-card>` elements 的 template 来完成偏好列表的代码：
 
@@ -190,7 +190,7 @@ tabs.addEventListener('core-select', function() {
   </aside>
 </side-by-side>
 
-`hidden`  表达式实际上是实现了全部tab标签和偏好tab标签之间的切换工作。
+`hidden` 表达式实际上是实现了全部 tab 标签和偏好 tab 标签之间的切换工作。
 `hidden` 属性是标准的 HTML5 属性。 对于不原生不支持 `hidden` 属性的浏览器，{{site.project_title}} 默认的样式包含有将 `hidden` 当作 `display: none` 的样式。
 
 <div class="divider" layout horizontal center center-justified>
@@ -215,11 +215,11 @@ Polymer({
   <aside>
     <h4>要点</h4>
     <ul>
-      <li><code>sender<wbr>.templateInstance<wbr>.model</code> model 数据的引用,用来创建 template 实例的。
+      <li><code>sender<wbr>.templateInstance<wbr>.model</code> model 数据的引用，用来创建 template 实例的。
       本例里，它包含有用来创建一个 <code>&lt;post-card&gt;</code> 的 <code>post</code> 对象，你才能恢复它的 ID 和
       <code>favorite</code> 的值。</li>
       <li><code>this.$.service</code> 返回的是 <code>&lt;post-service&gt;</code> element 的引用。
-      一个 custom element 的 shadow DOM 里的每个有 <code>id</code> 属性的元素都会被记录进 <code>this.$</code> 字典里。这就是 <a href="/docs/polymer/polymer.html#automatic-node-finding">全自动节点查找</a>.</li>
+      一个 custom element 的 shadow DOM 里的每个有 <code>id</code> 属性的元素都会被记录进 <code>this.$</code> 字典里。这就是 <a href="/docs/polymer/polymer.html#automatic-node-finding">全自动节点查找</a>。</li>
       <li>如果这是一个真实的社交网络服务，<code>setFavorite</code> 方法将把变更持久化到服务器保存起来。不过呢，这里只是在控制台打印出一条消息日志。</li>
     </ul>
   </aside>
@@ -227,7 +227,7 @@ Polymer({
 
 ### 收工!
 
-保存 `post-list.html` 刷新页面。
+保存 `post-list.html`，刷新页面。
 
 到此 &mdash; 你就搞定了! 运气不错的话，你的应用程序看上去就是这样的：
 
@@ -236,7 +236,7 @@ Polymer({
     <div class="unquote-image" flex></div>
   </a>
   <figcaption>
-    Click screenshot for demo
+    点击截图去演示
   </figcaption>
 </figure>
 
