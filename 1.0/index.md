@@ -8,7 +8,7 @@ title: Welcome
     <img src="./images/polymer1.0-01.svg">
     <summary>
       <h1>适用于生产环境</h1>
-      <p>Polymer 1.0正式发布：Polymer 1.0 从根基上得到了重构,性能和效率得到质的飞越.简洁的核心库保证了开发高性能,美观,可共用的 web components 变得前所未有的高效.如果你还没有碰过 Polymer,那现在可以放心的拥抱它了!如果你已经好久没有关注 Polymer,那士别三日,刮目相看.</p>
+      <p>Polymer 1.0 从根基上得到了重构,性能和效率得到质的飞越.简洁的核心库保证了开发高性能,美观,可共用的 web components 变得前所未有的高效.如果你还没有碰过 Polymer,那现在可以放心的拥抱它了!如果你已经好久没有关注 Polymer, 那士别三日, 刮目相看.</p>
       <a href="docs/start/getting-the-code.html">
         <paper-button raised unresolved>
           <core-icon icon="archive"></core-icon> 获取 {{site.project_title}}
@@ -44,7 +44,7 @@ title: Welcome
       </a>
       <div>
         <p>
-        Custom elements, 由 Polymer 团队构建, 适用于你的应用.
+        Custom elements 由 Polymer 团队构建, 可直接在你的应用里使用.
         </p>
         <a href="https://elements.polymer-project.org" target="_blank">
           <paper-button>
@@ -86,7 +86,7 @@ title: Welcome
           <core-icon icon="check-box" style="color: #00BCD4;"></core-icon>
         </div>
       </div>
-      <h2>为主流浏览器而生</h2>
+      <h2>专攻主流浏览器</h2>
       <p>Polymer 以主流浏览器为基准, 使用最新的 web 平台 API. 那些没有被浏览器广泛支持的 API 也有 Polyfill 作支持。</p>
     </div>
     
