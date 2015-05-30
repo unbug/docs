@@ -11,12 +11,12 @@ title: Welcome
       <p>Polymer 1.0正式发布：Polymer 1.0 从根基上得到了重构,性能和效率得到质的飞越.简洁的核心库保证了开发高性能,美观,可共用的 web components 变得前所未有的高效.如果你还没有碰过 Polymer,那现在可以放心的拥抱它了!如果你已经好久没有关注 Polymer,那士别三日,刮目相看.</p>
       <a href="docs/start/getting-the-code.html">
         <paper-button raised unresolved>
-          <core-icon icon="archive"></core-icon> Get {{site.project_title}}
+          <core-icon icon="archive"></core-icon> 获取 {{site.project_title}}
         </paper-button>
       </a>
       <a href="https://github.com/polymer">
         <paper-button class="github" unresolved>
-          <core-icon icon="social:post-github"></core-icon> View on GitHub
+          <core-icon icon="social:post-github"></core-icon> 在 GitHub 上查看
         </paper-button>
       </a>
     </summary>
@@ -38,17 +38,17 @@ title: Welcome
 <section id="catalog" class="main-purple">
   <div class="panel">
     <summary style="transform: translateZ(0);">
-      <h1>Element Catalog</h1>
+      <h1>Element 目录</h1>
       <a href="https://elements.polymer-project.org" target="_blank">
         <img src="/images/catalog_fadeout.png" alt="Launch the element catalog" title="Launch the element catalog">
       </a>
       <div>
         <p>
-        Custom elements, built by the Polymer team, ready to use in your applications.
+        Custom elements, 由 Polymer 团队构建, 适用于你的应用.
         </p>
         <a href="https://elements.polymer-project.org" target="_blank">
           <paper-button>
-            <core-icon icon="arrow-forward"></core-icon> Browse elements
+            <core-icon icon="arrow-forward"></core-icon> 浏览 elements
           </paper-button>
         </a>
       </div>
@@ -76,8 +76,8 @@ title: Welcome
           <core-icon icon="trending-up" style="color: #4CAF50;"></core-icon>
         </div>
       </div>
-      <h2>Built for Speed</h2>
-      <p>Polymer 1.0 replaces the shadow DOM polyfill with a lightweight shim, uses a new, faster data-binding system, and significantly reduces code size.</p>
+      <h2>高性能</h2>
+      <p>Polymer 1.0 使用一个轻量级的 shim 将 shadow DOM 的 polyfill 替换掉了, 使用一个全新, 更快的数据绑定系统, 大大地精简了代码量.</p>
     </div>
 
     <div class="feature">
@@ -86,8 +86,8 @@ title: Welcome
           <core-icon icon="check-box" style="color: #00BCD4;"></core-icon>
         </div>
       </div>
-      <h2>For Modern Browsers</h2>
-      <p>Polymer is built from the ground up for modern browsers, using the latest web platform APIs. Polyfills provide support on evergreen browsers for APIs that aren't universal yet.</p>
+      <h2>为主流浏览器而生</h2>
+      <p>Polymer 以主流浏览器为基准, 使用最新的 web 平台 API. 那些没有被浏览器广泛支持的 API 也有 Polyfill 作支持。</p>
     </div>
     
     <div class="feature">
@@ -96,8 +96,8 @@ title: Welcome
           <core-icon icon="favorite" style="color: #E91E63;"></core-icon>
         </div>
       </div>
-      <h2>Using Web Components</h2>
-      <p>Polymer leverages <em>web components</em>, a new set of standards designed to provide reusable components for the web.</p>
+      <h2>使用 Web Components</h2>
+      <p>Polymer 推动 <em>web components</em>, 一系列为了让 web 可重用 components 而全新的设计标准.</p>
     </div>
   </div>
 
@@ -107,18 +107,18 @@ title: Welcome
   <div class="panel">
 
     <div class="example">
-      <h2 class="example-header">Use elements from the catalog</h2>
+      <h2 class="example-header">使用 elements 目录里的elements</h2>
       <div class="example-wrapper">
         <div class="example-code">
         {% highlight html %}
 {%raw%}
-<!-- Polyfill Web Components support for older browsers -->
+<!-- 给 Web Components 使用 Polyfills 以便支持旧的浏览器 -->
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
-<!-- Import element -->
+<!-- 引入 element -->
 <link rel="import" href="components/google-map/google-map.html">
 
-<!-- Use element -->
+<!-- 使用 element -->
 <google-map lat="37.790" long="-122.390"></google-map>
 {%endraw%}
         {% endhighlight %}
@@ -129,12 +129,12 @@ title: Welcome
         </div>
       </div>
       <div class="example-caption">
-        <p>An element built with Polymer looks and works just like any other HTML element. Simply find an element you’d like to use in your app, import it with an HTML import, and then add the tag to your page.</p>
+        <p>Polymer 的 element 效果和其他 HTML element 是一样的. 挑一个你想用的 element, 通过 HTML import 引入它, 将标签添加到你的页面就成.</p>
       </div>
     </div>
 
     <div class="example">
-      <h2 class="example-header">Create your own elements</h2>
+      <h2 class="example-header">创建你自己的 elements</h2>
       <div class="example-wrapper">
         <div class="example-code">
       {% highlight html %}
@@ -172,13 +172,13 @@ title: Welcome
         </div>
       </div>
       <div class="example-caption">
-        <p>The Polymer library makes it easy to create your own powerful elements. Give your element some markup and properties, and then use it on a site. Polymer provides useful features like templating and data binding to reduce the amount of boilerplate you need to write.</p>
+        <p>Polymer 库能帮你创建强大 elements. 给你的 element 一个些标签和属性, 然后在网站上使用它. Polymer 提供非常实用的功能，像模板和数据绑定都大大的减少了你的代码量.</p>
       </div>
     </div>
 
 
     <div class="example">
-      <h2 class="example-header">Power it all with real data</h2>
+      <h2 class="example-header">用数据驱动它</h2>
       <div class="example-wrapper">
         <div class="example-code">
         {% highlight html %}
@@ -216,7 +216,7 @@ title: Welcome
         </div>
       </div>
       <div class="example-caption">
-        <p>Build more sophisticated elements by composing simpler elements together. Elements can provide simple abstractions to powerful APIs. The <code>&lt;firebase-collection&gt;</code> used here pulls data from a Firebase database. </p>
+        <p>构建更加高级的 elements 则可以通过整合简单的 elements 到一起. Elements 完全可以提供从简单抽象到强大 API. 这里使用的 <code>&lt;firebase-collection&gt;</code> 是从 Firebase 的数据库拉数据的. </p>
       </div>
       
       <div class="button-row">
@@ -247,13 +247,13 @@ title: Welcome
 <section id="everything-element" class="main-purple">
   <div class="panel right">
     <summary>
-      <h1>Everything is an element</h1>
-      <p>From <code>&lt;a&gt;</code> to <code>&lt;select&gt;</code>, elements are the building blocks of HTML. But modern applications have outgrown these built-in elements, forcing app developers to rely on JavaScript frameworks to provide dynamic, custom behavior.  The resulting apps are frequently complex and monolithic; a component developed for one may not work in another.
+      <h1>一切都是 element</h1>
+      <p>从 <code>&lt;a&gt;</code> 标签到 <code>&lt;select&gt;</code> 标签, elements 就是 HTML 的积木. 但是主流的应用已经用烂了了这些 elements, 迫使开发者使用 JavaScript 框架来获得动态的, 自定义的行为.  最终应用变得臃肿复杂, 并且僵化, 在一个地方要行的组件在其他地方可能就不行了.
       <br><br>
-      {{site.project_title}} puts elements back at the center of web development. With {{site.project_title}}, you can craft your own HTML elements and compose them into complete, complex applications that are scalable and maintainable.</p>
+      {{site.project_title}} 将 element 拾回了 web development 中心. 通过 {{site.project_title}}, 你可以构建自己的 HTML elements 并且将它们整合到更加复杂的应用中, 但是却更加灵活且易于维护.</p>
       <a href="docs/start/everything.html">
         <paper-button>
-          <core-icon icon="arrow-forward"></core-icon> Learn more
+          <core-icon icon="arrow-forward"></core-icon> 了解更多
         </paper-button>
       </a>
     </summary>
