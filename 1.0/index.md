@@ -7,8 +7,8 @@ title: Welcome
   <div class="panel left">
     <img src="./images/polymer1.0-01.svg">
     <summary>
-      <h1>Production ready</h1>
-      <p>Polymer 1.0 has been rebuilt from the ground up for speed and efficiency. The new, leaner core library makes it easier than ever to make fast, beautiful, and interoperable web components. If you haven't used Polymer before, it's time to try it out. If you haven't tried it recently, time to take another look.</p>
+      <h1>适用于生产环境</h1>
+      <p>Polymer 1.0正式发布：Polymer 1.0 从根基上得到了重构,性能和效率得到质的飞越.简洁的核心库保证了开发高性能,美观,可共用的 web components 变得前所未有的高效.如果你还没有碰过 Polymer,那现在可以放心的拥抱它了!如果你已经好久没有关注 Polymer,那士别三日,刮目相看.</p>
       <a href="docs/start/getting-the-code.html">
         <paper-button raised unresolved>
           <core-icon icon="archive"></core-icon> Get {{site.project_title}}
