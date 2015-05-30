@@ -3,7 +3,7 @@
 ### Polymer 1.0 中文文档翻译必读指南
 #### 相关资源
  - Polymer 官网英文镜像 [http://en.polymerchina.org/](http://en.polymerchina.org/)【已更新为1.0】
- - Polymer 中文文档 [http://docs.polymerchina.org](http://docs.polymerchina.org)【即将为1.0.0更新】
+ - Polymer 中文文档 [http://docs.polymerchina.org](http://docs.polymerchina.org)【已更新为1.0】
  - 文档翻译 repo [https://github.com/unbug/docs/tree/zh1.0.0](https://github.com/unbug/docs/tree/zh1.0.0)
  - Polymer 微博 [@Polymer中文社区](http://weibo.com/u/3631834213?from=profile&wvr=5&loc=infdomain)；QQ群：208264834
  - 组织者 unbug 的微博 [@听奏](http://weibo.com/unbug)
