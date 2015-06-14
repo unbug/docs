@@ -6,24 +6,15 @@ title: What is Polymer?
 subtitle: Get started
 ---
 
-The {{site.project_title}} library is designed to make it easier and faster
-for developers to create great, reusable components for the modern web.
+{{site.project_title}}库使得开发者能更快更简单地创建强大可复用的component。
 
+## Custom elements扩展web
 
-## Custom elements extend the web
+HTML提供了一系列如`<button>`,`<form>`,`<table>`等内置元素. 每个元素都有自身的属性(attributes), 特性(properties), 方法(method)和事件(events)的API. 每个元素都有内置的样式, 和你可以使用CSS覆盖的样式特性一样.
 
-HTML provides a set of built-in elements like `<button>`, `<form>` and
-`<table>`. Each element has its own API of attributes, properties, methods, and
-events. Each element has built-in styling, as well as style properties you can
-override using CSS.
+任何人都可以通过使用这些元素去构建一张简单的web页面. 但是它们还是很有限的. 如果要构建如一组tab的这么一个简单的页面, 你就要用到HTML, css而且通常也包含script.
 
-Anyone can use these elements to build a simple web page. But they're 
-limited. To build something as simple as a set of tabs, you need HTML 
-plus CSS and usually script, too.
-
-With custom elements, you can extend the vocabulary of HTML with your own elements. 
-Elements that provide sophisticated UI. Elements that are as easy to use as `<select>`: 
-
+通过使用custom element, 你可以使用你自己的element来扩展HTML的词汇. 这些elements可以包含复杂的UI交互. 如下面这样, 可以很方便地将作为一个`<select>`使用:
 
     <my-tabstrip>
       <my-tab>
@@ -38,56 +29,45 @@ Elements that provide sophisticated UI. Elements that are as easy to use as `<se
     <my-tabstrip>
 
 
-## Is {{site.project_title}} web components? Is it elements?
+## {{site.project_title}}是web compoments吗? 是elements吗?
 
-{{site.project_title}} isn't either of those things. {{site.project_title}} is built on top of the web components standards and it helps you build your own custom elements:
-
+{{site.project_title}}既不是web components, 也不是elements. {{site.project_title}}建立在web components标准之上, 帮助你建立自己的custom elements.
 
 ![](../../images/webcomponents_stack.svg)
 
-*   **Web components**. These standards provide the primitives you 
-    need to build new components. You can build your own custom elements
-    using these primitives, but it can be a lot of work.
+*   **Web components**. 这些标准提供了构建新component的基本类型. 你可以使用这些基本类型来构建自己的custom elements, 但是这需要大量的工作.
+    并不是所有的浏览器都实现了这些标准, 而[web components polyfill库](http://webcomponents.org/polyfills/)
+    填补了这些空白, 在JavaScript中实现了相应的API.
 
-    Not all browsers support these standards yet, so the [web components polyfill 
-    library](http://webcomponents.org/polyfills/) fills the gaps, implementing the APIs in JavaScript.
+*   **{{site.project_title}}库**. 提供了一种更容易定义custom elements的声明式语法. 它还添加了如模版(templating), 双向数据绑定(two-way data binding)
+    和特性观察(property observation)来帮助你使用更少的代码来构建强大且可复用的元素.
 
-*   **The {{site.project_title}} library**. Provides a declarative syntax that 
-    makes it simpler to define custom elements. And it adds features like 
-    templating, two-way data binding and property observation to help 
-    you build powerful, reusable elements with less code.
+*   **Custom elements**. 如果你不想编写自己的elements, 那么这里也有很多 _使用{{site.project_title}}构建_ 的elements, 你可以直接在你的页面中使用它们.
+    这些elements依赖{{site.project_title}}库, 但是你可以在不直接使用{{site_project_title}}的前提下使用它们.
 
-*   **Custom elements**. If you don't want to write your own elements, there 
-    are a number of elements _built with_ {{site.project_title}} that you can drop 
-    straight into your existing pages. These elements depend on the {{site.project_title}} 
-    library, but you can use the elements without using {{site.project_title}} directly.
+    你可以将custom elements看作内置elements一样，和{{site.project_title}}构建的elements配合使用.
 
-    You can mix and match elements built with {{site.project_title}} with other
-    custom elements, as well as built-in elements.
+## 获取elements
 
-## Get some elements
+{{site.project_title}}团队写了一些elements, 你可以直接在你的app中使用它们. 在[Element catalog](https://elements.polymer-project.org/)中可以找到这些elements.
 
-The {{site.project_title}} team has written collections of elements that you can use 
-in your apps. You can find them on the [Element catalog](https://elements.polymer-project.org/).
+## 编写自己的elements
 
+心动了吧？也想使用{{site.project_title}}库来构建自己的elements？
 
-## Write your own
-
-Interested in using the {{site.project_title}} library to build your own elements?
-
-
-Take a quick tour of the features:
+快速学习这些功能:
 
 <p>
 <a href="../start/quick-tour.html">
-  <paper-button raised><core-icon icon="arrow-forward"></core-icon>Quick tour</paper-button>
+  <paper-button raised><core-icon icon="arrow-forward"></core-icon>快速教程</paper-button>
 </a>
 </p>
 
-Or jump straight to:
+
+或者直接跳到这里:
 
 <p>
 <a href="../devguide/feature-overview.html">
-  <paper-button raised><core-icon icon="arrow-forward"></core-icon>Developer guide</paper-button>
+  <paper-button raised><core-icon icon="arrow-forward"></core-icon>开发者指南</paper-button>
 </a>
 </p>

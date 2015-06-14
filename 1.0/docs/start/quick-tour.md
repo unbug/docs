@@ -15,33 +15,26 @@ subtitle: Get started
 
 {% include toc.html %}
 
-{{site.project_title}} makes it simple to create web components, declaratively.
+{{site.project_title}}使我们方便地以声明式的方式创建web components.
 
-Custom elements can leverage {{site.project_title}}'s special features to reduce boilerplate
-and make it even easier to build complex, interactive elements:
+custom elements可以利用{{site.project_title}}的特定功能来简化样板文件, 并使得构建复杂交互性element更加容易:
 
-- Registering elements
-- Lifecycle callbacks
-- Property observation
-- Local DOM template
-- Data binding
+- 注册elements
+- lifecycle回调
+- 特性观察
+- local DOM模版
+- 数据绑定
 
-In this section you can take a quick tour of the {{site.project_title}} library,
-without installing anything. Click the **Edit on Plunker** button to open any
-of the samples in an interactive sandbox.
+在本阶段, 你可以在不进行任何安装的情况下, 快速了解{{site.project_title}}. 点击 **Edit on Plunker** 按钮来打开交互沙盒中的任一示例.
 
-See the [Developer guide](../devguide/feature-overview.html) for
-detailed information on each of these features.
+查看[开发者指南](../devguide/feature-overview.html)了解这些功能的更多信息.
 
-### Register an element {#register}
+### 注册一个element {#register}
 
-To register a new element, call the `{{site.project_title}}` function, which 
-_registers_ a new element with the browser. Registering an element associates
-a tag name with a prototype, so you can add properties and methods to your custom
-element.
+通过调用 `{{site.project_title}}` 方法来注册一个新的element, 该方法会使用浏览器 _注册_ 一个新的element.
+注册element时将tag名称和原型进行关联, 这样你就可以给自己的custom element添加特性和方法了.
 
-The {{site.project_title}} function takes as an 
-argument an object that defines your element's prototype. 
+{{site.project_title}}方法接收一个对象参数, 该参数定义了你的element的原型对象.
 
 <demo-tabs selected="0" demoSrc="../../samples/start/proto-element/manifest.json">
   <demo-tab heading="proto-element.html">
@@ -71,15 +64,13 @@ argument an object that defines your element's prototype.
   </div>
 </demo-tabs>
 
-This sample uses a lifecycle callback 
-to add contents to the `<proto-element>` when it's initialized. 
-When a custom element finishes its initialization, the `ready` lifecycle callback is called.
-The `ready` callback is a great place to do constructor-like initialization work.
+该示例使用了一个lifecycle回调, 该回调在 `<proto-element>` 初始化时给它添加内容. 一旦custom element完成了初始化, 便会调用 `ready` 这个lifecycle回调.
+`ready` 回调很适合用来进行类似结构初始化的工作.
 
 <p>
   <a href="../devguide/registering-elements.html">
     <paper-button>
-      Learn more: element registration
+      了解更多: element注册
     </paper-button>
   </a>
 </p>
@@ -87,15 +78,15 @@ The `ready` callback is a great place to do constructor-like initialization work
 <p>
   <a href="../devguide/registering-elements.html#lifecycle-callbacks">
     <paper-button>
-      Learn more: lifecycle callbacks
+      了解更多: lifecycle callbacks
     </paper-button>
   </a>
 </p>
 
-### Add local DOM
+### 添加local DOM
 
-Many elements include some internal DOM nodes to implement the element's UI and behavior. 
-{{site.project_title}} calls this _local DOM_, and it provides an easy way to specify it:
+很多element都包含一些内部的DOM节点, 以用来进行element的UI和行为表现. {{site.project_title}}称它们为 _local DOM_ ,
+并给出了定义它的简单方法:
 
 <demo-tabs selected="0" demoSrc="../../samples/start/dom-element/manifest.json">
   <demo-tab heading="dom-element.html">
@@ -125,23 +116,21 @@ Many elements include some internal DOM nodes to implement the element's UI and 
   </div>
 </demo-tabs>
 
-Local DOM is encapsulated inside the element. 
+在element中封装Local DOM.
 
 <p>
   <a href="../devguide/local-dom.html">
     <paper-button>
-      Learn more: local DOM
+      了解更多: local DOM
     </paper-button>
   </a>
 </p>
 
-### Composition with local DOM
+### 和local DOM进行合成
 
-Local DOM lets you control _composition_. The element's children can be _distributed_
-so they render as if they were inserted into the local DOM tree.
+local DOM可以让你控制 _合成_ . 该element的子元素可以被 _分解_ , 这样的话, 这些子元素就如同是插入到该local DOM树中一样被渲染出来.
 
-This example creates a simple tag that decorates an image by wrapping it
-with a styled `<div>` tag.
+以下的示例创建了一个简单的标签, 它通过在图片外层添加一个带有样式的 `<div>` 来装饰它.
 
 <demo-tabs selected="0" demoSrc="../../samples/start/picture-frame/manifest.json">
   <demo-tab heading="picture-frame.html">
@@ -174,27 +163,24 @@ with a styled `<div>` tag.
 </demo-tabs>
 
 
-**Note:** The CSS styles defined inside the `<dom-module>` are _scoped_ to the element's local DOM. 
-So the `div` rule here only affects `<div>` tags inside `<picture-frame>`.
+**注:** 定义在 `<dom-module>` 中的样式只 _针对_ 该element中的local DOM. 所以这里的 `div` 样式规则只对 `<picture-frame>` 中的 `div` 标签起作用.
 {: .alert .alert-info }
+
 
 <p>
   <a href="../devguide/local-dom.html#dom-distribution">
     <paper-button>
-      Learn more: Composition & distribution
+      了解更多: 合成 & 分解
     </paper-button>
   </a>
 </p>
 
-### Data binding
+### 数据绑定
 
-Of course, it's not enough to have static local DOM. You usually want to have your element update
-its local DOM dynamically.
+只有静态的local DOM当然是不够的. 通常情况下, 你需要让你的element动态更新其中的local DOM.
 
-Data binding is a great way to quickly propagate changes in your element and reduce boilerplate code. 
-You can bind properties in your component using the "double-mustache" syntax (`{%raw%}{{}}{%endraw%}`). 
-The `{%raw%}{{}}{%endraw%}` is replaced by the value of the property referenced between the brackets.
-
+数据绑定会很好地快速传播element中的改变,并简化样本代码. 你可以在自己的component中使用"double-mustache"语法(`{%raw%}{{}}{%endraw%}`)来进行特性绑定.
+`{%raw%}{{}}{%endraw%}`会被花括号中的引用的特性替换掉.
 
 <demo-tabs selected="0" demoSrc="../../samples/start/name-tag/manifest.json">
   <demo-tab heading="name-tag.html">
@@ -227,20 +213,17 @@ The `{%raw%}{{}}{%endraw%}` is replaced by the value of the property referenced 
 <p>
   <a href="../devguide/data-binding.html">
     <paper-button>
-      Learn more: data binding
+      了解更多: 数据绑定
     </paper-button>
   </a>
 </p>
 
 
-### Declared properties
+### 已声明特性
 
-Properties are an important part of an element's public API. {{site.project_title}} 
-_declared properties_ support a number of common patterns for properties — setting default
-values, configuring properties from markup, observing property changes, and more.
+特性是element公共API的重要组成部分. {{site.project_title}} _已声明特性_ 支持特性的几种常见模式 - 设置特性的默认值, 通过标记对特性进行配置, 观察特性的改变等等.
 
-In the following example, we add a declared `owner` property with a default value, 
-and configure it in `index.html`.
+在下面的示例中, 我们添加了一个有默认值的 `owner` 已声明特性, 并在index.html中对其进行了配置.
 
 <demo-tabs selected="0" demoSrc="../../samples/start/configurable-name-tag/manifest.json">
   <demo-tab heading="configurable-name-tag.html">
@@ -262,6 +245,7 @@ and configure it in `index.html`.
   <body>
     <!-- configure a property from markup by setting
          the corresponding attribute                 -->
+    <!-- 使用标记来配置特性的相关属性 -->
     <configurable-name-tag owner="Scott"></configurable-name-tag>
   </body>
 </html>
@@ -275,19 +259,17 @@ and configure it in `index.html`.
 <p>
   <a href="../devguide/properties.html">
     <paper-button>
-      Learn more: declared properties
+      了解更多: 声明的特性
     </paper-button>
   </a>
 </p>
 
-#### Binding to properties
+#### 绑定到特性
 
-In addition to text content, you can bind to an element's _properties_ (using
-`property-name="{%raw%}{{binding}}{%endraw%}"`). {{site.project_title}} properties 
-can optionally support two-way binding. 
+除了上面提到的文本内容上的绑定, 你也可以在元素的 _属性_ 上进行绑定(通过 `property-name="{%raw%}{{binding}}{%endraw%}"` ).
+{{site.project_title}}特性选择性支持双向绑定.
 
-This example uses two-way binding: binding the value of a custom input element (`iron-input`)
-to the element's `owner` property, so it's updated as the user types.
+该示例使用了双向绑定: 将custom input element( `icon-input` )的值绑定到该element的 `owner` 属性上, 那么它将随着用户的输入做相应的更新.
 
 <demo-tabs selected="0" demoSrc="../../samples/start/editable-name-tag/manifest.json">
   <demo-tab heading="editable-name-tag.html">
@@ -295,6 +277,7 @@ to the element's `owner` property, so it's updated as the user types.
 <link rel="import"
       href="bower_components/polymer/polymer.html">
 <!-- import the iron-input custom element -->
+    <!-- 引入iron-input custom element -->
 <link rel="import"
       href="bower_components/iron-input/iron-input.html">
 
@@ -320,29 +303,24 @@ to the element's `owner` property, so it's updated as the user types.
   </div>
 </demo-tabs>
 
-**Note:** The `is="iron-input"` attribute indicates the input is a _type-extension_ custom 
-element; the element name is `iron-input`, and it _extends_ the native `<input>` element. 
+**注:**  `is="iron-input"` 属性表明了这个input是一个 _类型扩展_ 的custom element; 该element的名字为 `iron-input` , 它 _扩展_ 了原生的 `<input>` 元素.
 {: .alert .alert-info }
 
 
-## Next steps {#nextsteps}
+## 下一步 {#nextsteps}
 
-Now that you know how to create your own elements, [Get the code](getting-the-code.html) 
-to create your first {{site.project_title}} project, or dive deeper in the
-[Developer guide](../devguide/feature-overview.html). 
-Continue on to:
+现在你已经知道了如何创建自己的element, [获取代码](getting-the-code.html)来创建自己的第一个{{site.project_title}}项目吧, 或者到[开发者指南](../devguide/feature-overview.html)进一步学习. 继续~
 
 <p>
 <a href="getting-the-code.html">
-  <paper-button raised><core-icon icon="arrow-forward"></core-icon>Get the code</paper-button>
+  <paper-button raised><core-icon icon="arrow-forward"></core-icon>获取代码</paper-button>
 </a>
 </p>
 
 <p>
 <a href="../devguide/feature-overview.html">
-  <paper-button raised><core-icon icon="arrow-forward"></core-icon>Developer guide</paper-button>
+  <paper-button raised><core-icon icon="arrow-forward"></core-icon>开发者指南</paper-button>
 </a>
 </p>
-
 
 

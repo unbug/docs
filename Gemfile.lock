@@ -88,3 +88,6 @@ DEPENDENCIES
   jekyll (~> 2.5)
   octopress-hooks
   rouge
+
+BUNDLED WITH
+   1.10.3
