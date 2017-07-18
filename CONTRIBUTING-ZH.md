@@ -9,7 +9,7 @@
  - 组织者 unbug 的微博 [@听奏](http://weibo.com/unbug)
 
 #### 开始前须知
- - 在你开始前强烈建议你参考 [Polymer 0.5 中文文档(https://github.com/unbug/docs/tree/ZH/docs),[FQA]（https://github.com/unbug/docs/tree/ZH/resources）
+ - 在你开始前强烈建议你参考 [Polymer 0.5 中文文档](https://github.com/unbug/docs/tree/ZH/docs),[FQA]（https://github.com/unbug/docs/tree/ZH/resources）
  - 在你准备翻译某个部分前，**请先确保你已经实践过了，写过DEMO之后你的翻译质量更加有保证**，如果你遇到困难请加QQ群：208264834 与大家探讨。拒绝一切机器翻译。
  - 对于一些常用前端名词的翻译，请参看[W3C 词汇中英对照表](http://w3c-html-ig-zh.github.io/w3c-glossary/)。对于 Polymer 常用关键词，请保留原词语：Web components,Custom Elements,Shadow DOM,Local DOM,HTML Imports,Polyfill,Iron Elements,Paper Elements,Material design等。
 
